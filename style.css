@@ -1,0 +1,34 @@
+body{
+    font-family:'Fraunces', serif;
+  }
+  
+  #container {
+    margin-top: 2%;
+    margin-left:5%;
+  }
+  button {
+    height:65px;
+    width:100px;
+    font-family:'Fraunces', serif;
+    background-color: white;
+    border:solid 1px;
+    border-radius:10%;
+    font-size:25px;
+  }
+  #clearAll {
+    margin-top:35px;
+  }
+  
+  li {
+    font-size:25px;
+  }
+  
+  #submit{
+     margin-left:10px;
+  }
+  
+  input {
+    height:50px;
+    width:50%; 
+    font-size:25px;
+  }
