@@ -1,25 +1,42 @@
 const input = document.querySelector("#item");
 const submitButton = document.querySelector("#submit");
-const listItem = document.querySelector("#toDoItem");
+const ul = document.querySelector("#ul");
 const clearAll = document.querySelector("#clearAll")
+let itemsArray = []
+localStorage.setItem('items',JSON.stringify(itemsArray))
+const data = JSON.parse(localStorage.getItem('items'))
 
-submitButton.addEventListener("click", (e) => {
-  let list = document.createElement("li")
-  listItem.classList.add("itemsInList")
-  listItem.appendChild(list)
-  list.innerHTML += input.value
+function listMaker (text) {
+  const list = document.createElement('li');
+  list.textContent = text;
+  ul.appendChild(list)
+}
+
+submitButton.addEventListener("click", () => {
+  listMaker(input.value)
+  itemsArray.push(input.value)
+  localStorage.setItem('items',JSON.stringify(itemsArray))
 })
 
 if (input.value == ""){
   list = null
 }
 
+data.forEach(item => {
+  listMaker(item)
+})
+
+clearAll.addEventListener('click',clear)
 function clear () {
-  itemsInList.forEach(item => {
-    item.addEventListener('click',remove)
-  })
+  localStorage.clear()
+  while(ul.firstChild){
+    ul.removeChild(ul.firstChild)
+  }
 }
 
-function remove () {
-  listItem.forEach()
+if (localStorage.getItem('items')){
+  items = JSON.parse(localStorage.getItem('items'))
+}
+else{
+  items = []
 }
